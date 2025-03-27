@@ -53,28 +53,27 @@ Make a request to ask a question as follows:
 
 ```shell
 curl -X POST \
-  localhost:8080/api/Weather.Service.Core/InvokePlanner \
+  localhost:8080/api/Weather.Service.Core/WeatherPlannerAgent \
   -H 'Content-type: application/json' \
-  -d '{"Weather.Service.Core/InvokePlanner": {"UserInstruction": "What is the weather for Boston today?"}}'
+  -d '{"Weather.Service.Core/WeatherPlannerAgent": {"UserInstruction": "What is the weather for Boston today?"}}'
 ```
 
 It should respond with a JSON response body, example below:
 
 ```json
-[
-  {
-    "status": "ok",
-    "result": {
-      "City": "Boston",
-      "Date": "2025-01-07T19:42:30.40914652",
-      "Description": null,
-      "Id": "4fa414bc-d2ec-402d-825e-b88a6a504ef3",
-      "Temperature": 70.4
-    },
-    "message": null,
-    "type": "Weather.Service.Core/Weather"
-  }
-]
+{
+  "result": {
+    "Temperature": 70.4,
+    "Id": "47ce8543-1f73-4121-810b-30f3908f1d8d",
+    "City": "Boston",
+    "Date": "2025-03-27T18:19:23.213767208",
+    "__path__": ":Weather.Service.Core/Weather,47ce8543-1f73-4121-810b-30f3908f1d8d",
+    "Description": null,
+    "__parent__": null
+  },
+  "status": "ok",
+  "type": "Weather.Service.Core/Weather"
+}
 ```
 
 ## License
